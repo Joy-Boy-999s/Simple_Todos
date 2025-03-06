@@ -1,0 +1,20 @@
+/* Write your CSS here */
+.todoItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 130%;
+}
+.bt {
+  border: 1px solid #ff0b37;
+  background-color: aliceblue;
+  height: 40px;
+  padding: 12px;
+  color: #ff0b37;
+  font-family: 'Roboto';
+  border-radius: 12px;
+}
+.para {
+  font-size: 18px;
+  font-family: 'Roboto';
+}
