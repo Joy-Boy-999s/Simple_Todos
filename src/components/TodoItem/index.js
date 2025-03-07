@@ -1,18 +1,54 @@
-// Write your code here
-import './index.css'
-
 const TodoItems = props => {
-  const {todoItemList, deleteTodo} = props
-  const {id, title} = todoItemList
-  const onDelete = () => {
-    deleteTodo(id)
-  }
+  const {
+    todoItem,
+    deleteTodo,
+    toggleComplete,
+    startEditing,
+    saveEdit,
+    handleEditChange,
+    editingId,
+    editedTitle,
+  } = props
+  const {id, title, completed} = todoItem
+
   return (
     <li className="todoItem">
-      <p className="para">{title}</p>
-      <button className="bt" type="button" onClick={onDelete}>
+      <input
+        type="checkbox"
+        checked={completed}
+        onChange={() => toggleComplete(id)}
+      />
+      {editingId === id ? (
+        <input
+          type="text"
+          value={editedTitle}
+          onChange={handleEditChange}
+          className="input-box"
+          aria-label="edit-todo"
+        />
+      ) : (
+        <p className={`para ${completed ? 'completed' : ''}`}>{title}</p>
+      )}
+      <button
+        className="delete-btn"
+        type="button"
+        onClick={() => deleteTodo(id)}
+      >
         Delete
       </button>
+      {editingId === id ? (
+        <button className="add-btn" type="button" onClick={() => saveEdit(id)}>
+          Save
+        </button>
+      ) : (
+        <button
+          className="delete-btn"
+          type="button"
+          onClick={() => startEditing(id, title)}
+        >
+          Edit
+        </button>
+      )}
     </li>
   )
 }

@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 130%;
+  width: 95%;
 }
 .bt {
   border: 1px solid #ff0b37;
@@ -13,8 +13,19 @@
   color: #ff0b37;
   font-family: 'Roboto';
   border-radius: 12px;
+  margin: 8px;
 }
 .para {
   font-size: 18px;
   font-family: 'Roboto';
+}
+@media (max-width: 600px) {
+  .para {
+    font-size: 12px;
+  }
+  .bt {
+    height: 30px;
+    border-radius: 7px;
+    padding: 4px;
+  }
 }
